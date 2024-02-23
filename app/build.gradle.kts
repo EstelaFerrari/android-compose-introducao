@@ -66,4 +66,9 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+<<<<<<< HEAD
+=======
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+>>>>>>> 70a824c (fazendo de minha conta)
 }
