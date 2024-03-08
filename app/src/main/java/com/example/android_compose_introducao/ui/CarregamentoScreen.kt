@@ -1,55 +1,48 @@
 package com.example.android_compose_introducao.ui
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavController
-
+import androidx.compose.ui.unit.dp
 
 @Composable
-fun InicioScreen(
-    navController: NavController
-){
+fun CarregamentoScreen (
+//    navController: NavController
+) {
+
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color.LightGray
-    ) {
+        color = Color.White
+    )
+    {
         Column(
-            modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Não autenticado")
-
-            //Button(onClick = { }) {
-
-            Button(onClick = { navController.navigate("minha-conta") }) {
-
-                Text("Minha conta")
-            }
-
+            CircularProgressIndicator(
+                modifier = Modifier.width(64.dp),
+                color = MaterialTheme.colorScheme.secondary,
+                trackColor = MaterialTheme.colorScheme.surfaceVariant,
+            )
         }
+
     }
 }
-//
-//
+
+
+
 //@Preview(showBackground = true)
 //@Composable
-//fun InicioScreenPreview() {
+//fun CarregamentoScreenPreview() {
 //    AndroidcomposeintroducaoTheme {
-//       InicioScreen(rememberNavController())
-//   }
-//}
-//@Preview(showBackground = true)
-//@Composable
-//fun InicioScreenPreview() {
-//    AndroidcomposeintroducaoTheme {
-//        InicioScreen()
+//        CarregamentoScreen(rememberNavController())
 //    }
 //}

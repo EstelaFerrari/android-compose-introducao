@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.android_compose_introducao.datastore.AppDataStore
 import com.example.android_compose_introducao.datastore.AppDataStoreKeys
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.ViewModelScoped
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,6 +15,7 @@ class AuthViewModel @Inject constructor(
     private val appDataStore: AppDataStore
 ): ViewModel() {
     val autenticado = mutableStateOf(false)
+    var loading =  mutableStateOf(false)
 
     fun login(
         user: String,
@@ -30,10 +31,14 @@ class AuthViewModel @Inject constructor(
         if (senha.isEmpty())
             onError("Informe a senha")
 
+        loading.value=true
+        //API
+
+
 
         if (user == "Ana" && senha == "1234") {
             viewModelScope.launch {
-                //delay(2000)
+                delay(2000)
                 appDataStore.putBoolean(AppDataStoreKeys.AUTENTICADO, true).apply { onSuccess()  }
             }
 
@@ -42,8 +47,13 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-    fun logout() {
+
+
+    fun logout (onSuccess: () -> Unit) {
+        loading.value=true
+
         viewModelScope.launch {
+            delay(2000)
             appDataStore.putBoolean(AppDataStoreKeys.AUTENTICADO, true)
         }
     }

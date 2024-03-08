@@ -150,6 +150,6 @@ fun MinhaContaScreen(
 //@Composable
 //fun MinhaContaPreview() {
 //    AndroidcomposeintroducaoTheme {
-//        MinhaContaScreen()
+//        MinhaContaScreen(rememberNavController())
 //    }
 //}

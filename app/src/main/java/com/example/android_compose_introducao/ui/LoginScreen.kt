@@ -27,10 +27,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.android_compose_introducao.ViewModel.AuthViewModel
 import com.example.android_compose_introducao.R
+import com.example.android_compose_introducao.ViewModel.AuthViewModel
 
 
 @Composable
@@ -112,6 +111,10 @@ fun LoginScreen(
 
         }
 
+
+        }
+        if (authViewModel.loading.value){
+            CarregamentoScreen()
         }
     }
 }
@@ -121,6 +124,6 @@ fun LoginScreen(
 //@Composable
 //fun LoginScreenPreview() {
 //    AndroidcomposeintroducaoTheme {
-//        LoginScreen()
+//        LoginScreen(rememberNavController())
 //    }
 //}
